@@ -10,11 +10,23 @@ import java.util.List;
 
 public class EmployeeDatabase {
 
-    public List<Employee> fetchEmployees() {
+    public static List<Employee> fetchEmployees() {
         ObjectMapper mapper = new ObjectMapper();
         List<Employee> employees = null;
         try {
             employees = mapper.readValue(new File("mock.json"), new TypeReference<List<Employee>>() {
+            });
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return employees;
+    }
+
+    public static List<Employee> fetchUpdatedEmployees() {
+        ObjectMapper mapper = new ObjectMapper();
+        List<Employee> employees = null;
+        try {
+            employees = mapper.readValue(new File("updateMock.json"), new TypeReference<>() {
             });
         } catch (IOException e) {
             throw new RuntimeException(e);

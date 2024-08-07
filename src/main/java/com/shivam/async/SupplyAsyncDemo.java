@@ -16,7 +16,7 @@ public class SupplyAsyncDemo {
         Executor executor = Executors.newCachedThreadPool();
         CompletableFuture<List<Employee>> listCompletableFuture = CompletableFuture.supplyAsync(() -> {
             System.out.println("Executed by "+Thread.currentThread().getName()); // by default use forkJoin pool
-            return employeeDatabase.fetchEmployees();
+            return employeeDatabase.fetchUpdatedEmployees();
         }, executor);
         return listCompletableFuture.get();
     }

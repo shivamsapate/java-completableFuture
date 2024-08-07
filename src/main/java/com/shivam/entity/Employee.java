@@ -9,4 +9,6 @@ public class Employee {
     private long id;
     private String firstName;
     private String email;
+    private boolean newJoiner;
+    private boolean learningPending;
 }
